@@ -38,8 +38,7 @@ def load_inverted_index(path):
 def load_index():
     """Load index."""
     # Load stop words
-    with open(
-            'index_server/index/stopwords.txt', "r", encoding="utf-8") as file:
+    with open('index_server/index/stopwords.txt', "r", encoding="utf-8") as file:
         temp = set(file.read().split())
     for word in temp:
         STOPWORDS.add(word)
@@ -54,8 +53,7 @@ def load_index():
     else:
         load_inverted_index(index.app.config["INDEX_PATH"])
     # Load Page Rank
-    with open(
-            "index_server/index/pagerank.out", "r", encoding="utf-8") as file:
+    with open("index_server/index/pagerank.out", "r", encoding="utf-8") as file:
         while True:
             line = file.readline().split(",")
             if not line[0]:
